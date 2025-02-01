@@ -7,6 +7,7 @@ function SetUp({ user }) {
     user_id: user.id,
     user_gender: "",
     user_level: 1,
+    user_own: 1,
   });
 
   const handleChange = (e) => {
@@ -28,7 +29,7 @@ function SetUp({ user }) {
       <h2>Set Up Your Profile</h2>
       <form onSubmit={handleSubmit} className="set-up-form">
         <div className="set-up-gender">
-          <label>Gender:</label>
+          <label>Gender: </label>
           <select
             name="user_gender"
             value={formData.user_gender}
@@ -42,7 +43,7 @@ function SetUp({ user }) {
         </div>
 
         <div className="set-up-savviness">
-          <label>Internet Savviness (1-5):</label>
+          <label>Internet Savviness (1-5): </label>
           <input
             type="number"
             name="user_level"
@@ -53,7 +54,18 @@ function SetUp({ user }) {
           />
         </div>
 
-        <div className="home-ownership"></div>
+        <div className="home-ownership">
+          <label>Do you own or rent: </label>
+          <select
+            name="user_own"
+            value={formData.user_own}
+            onChange={handleChange}
+          >
+            <option value="">Select</option>
+            <option value="Own">Own</option>
+            <option value="Rent">Rent</option>
+          </select>
+        </div>
 
         <button type="submit" className="set-up-submit">
           Submit
