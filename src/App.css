@@ -1,0 +1,36 @@
+:root {
+    --primary: #f0b400;
+    --secondary: #d6a400;
+    --accent: #c28e00;
+    --dark: #a87b00;
+    --darker: #8a6e00;
+    --background: white;
+    --text: #333;
+}
+html,
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cl-avatarBox {
+    width: 2.75rem;
+    height: 2.75rem;
+    margin: 10px;
+}
