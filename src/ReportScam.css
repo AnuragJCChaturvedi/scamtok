@@ -1,4 +1,4 @@
-.set-up {
+.report-scam {
     max-width: 500px;
     margin: 50px auto;
     padding: 30px;
@@ -8,28 +8,29 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.set-up h2 {
+.report-scam h2 {
     text-align: center;
     color: var(--primary);
     margin-bottom: 25px;
     font-size: 1.8rem;
 }
 
-.set-up-form {
+.report-scam-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.set-up-form label {
+.report-scam-form label {
     font-weight: bold;
     color: var(--text);
     margin-bottom: 5px;
     display: block;
 }
 
-.set-up-form select,
-.set-up-form input {
+.report-scam-form select,
+.report-scam-form input,
+.report-scam-form textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid var(--dark);
@@ -38,16 +39,18 @@
     transition: all 0.3s ease-in-out;
 }
 
-.set-up-form select:hover,
-.set-up-form input:hover,
-.set-up-form select:focus,
-.set-up-form input:focus {
+.report-scam-form select:hover,
+.report-scam-form input:hover,
+.report-scam-form textarea:hover,
+.report-scam-form select:focus,
+.report-scam-form input:focus,
+.report-scam-form textarea:focus {
     border-color: var(--primary);
     outline: none;
     box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
 }
 
-.set-up-submit {
+.submit-button {
     background: var(--primary);
     color: white;
     padding: 12px;
@@ -61,29 +64,14 @@
         transform 0.2s;
 }
 
-.set-up-submit:hover {
+.submit-button:hover {
     background: var(--dark);
     transform: scale(1.05);
 }
 
-/* Enhancing checkbox inputs */
-.scam-experience div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    margin-top: 5px;
-}
-
-.scam-experience input {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--primary);
-}
-
 /* Responsive adjustments */
 @media (max-width: 600px) {
-    .set-up {
+    .report-scam {
         max-width: 90%;
         padding: 20px;
     }
