@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Scams from "./Scams";
+import Scams from "./Shorts";
 
 const isNewUser = (user) => {
   if (user) {
