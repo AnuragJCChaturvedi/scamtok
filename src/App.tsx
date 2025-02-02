@@ -11,6 +11,7 @@ import Home from "./Home";
 import Scams from "./Scams";
 import SignedOutHome from "./SignedOutHome";
 import SetUp from "./SetUp";
+import ReportScam from "./ReportScam";
 
 export default function App() {
   const { user } = useUser();
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/" element={<Home user={user} />} />
             <Route path="/scams" element={<Scams />} />
             <Route path="/setup" element={<SetUp user={user} />} />
+            <Route path="/report-scam" element={<ReportScam />} />
           </Routes>
         </SignedIn>
       </div>

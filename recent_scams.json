@@ -1,0 +1,32 @@
+[
+  {
+    "scam-type": "Romance Scams",
+    "date-of-scam": "2024-01-15",
+    "description": "Scammers targeted elderly individuals on dating websites, pretending to be loving partners before requesting money for fake medical emergencies or travel expenses."
+  },
+  {
+    "scam-type": "Tech Support Scams",
+    "date-of-scam": "2023-11-22",
+    "description": "Seniors given pop up adds that, after clicking, gives them a virus."
+  },
+  {
+    "scam-type": "Lottery Scams",
+    "date-of-scam": "2024-02-05",
+    "description": "Seniors contacted by phone or email with a message they have won the lottery but need to pay taxes to claim prize"
+  },
+  {
+    "scam-type": "Phishing",
+    "date-of-scam": "2023-12-10",
+    "description": "Emails pretending to be from Medicare or Social Security tricked seniors into providing personal and financial information, leading to identity theft."
+  },
+  {
+    "scam-type": "Email Extension",
+    "date-of-scam": "2023-09-30",
+    "description": "Fraudsters used fake email addresses mimicking trusted institutions to deceive seniors into making unauthorized bank transfers or sharing sensitive information."
+  },
+  {
+    "scam-type": "Fake Check/Overpayment Scams",
+    "date-of-scam": "2024-03-01",
+    "description": "Scammers tricked elderly sellers by sending fraudulent checks for purchases and requesting a refund of the overpaid amount before the check bounced."
+  }
+]
