@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { motion } from "framer-motion";
 import { FaHeart, FaComment, FaShare } from "react-icons/fa";
+
+import { UserContext } from "./contexts/UserContext";
+import askLLM from "./AskLLM"
+import { storeUserKey, cleanSearchQuery } from './common'
 
 import './Shorts.css'
 
@@ -25,15 +29,16 @@ const fetchYouTubeData = async ({ endpoint, params }) => {
   }
 };
 
-const fetchShorts = async (pageToken = "") => {
+const fetchShorts = async (pageToken = "", queryStr) => {
+  console.log("Final query: ", cleanSearchQuery(queryStr))
   return fetchYouTubeData({
     endpoint: "search",
     params: {
       part: "snippet",
-      q: "financial scam",
+      q: cleanSearchQuery(queryStr) || "financial scam",
       type: "video",
       videoDuration: "short",
-      maxResults: 10,
+      maxResults: 1,
       pageToken: pageToken
     },
   });
@@ -45,12 +50,38 @@ const Shorts = () => {
   const [pageToken, setPageToken] = useState("");
   const [hasMore, setHasMore] = useState(true);
 
-  useEffect(() => {
-    loadShorts();
-  }, []);
+  const {count, resetCount} = useContext(UserContext)
 
-  const loadShorts = async () => {
-    const data = await fetchShorts(pageToken);
+  useEffect(() => {
+    const fetchData = async () => {
+      if (count === 1) {
+        const userStr = localStorage.getItem(storeUserKey);
+        if (userStr !== null) {
+          try {
+            const response = await askLLM(JSON.parse(userStr));
+            console.log("LLM response: ", response);
+            loadShorts(response.join(" "));
+          } catch (error) {
+            console.error("Error calling askLLM: ", error);
+          }
+        }
+        resetCount();
+      } else {
+        loadShorts(null);
+      }
+    };
+  
+    fetchData(); // Call the async function
+  }, [count]);
+  
+
+  const loadShorts = async (queryStr) => {
+    const data = await fetchShorts(pageToken, queryStr);
+
+    if (!data || !data.items) {
+      return
+    }
+
     setVideos((prev) => [...prev, ...data.items]);
 
     setPageToken(data.nextPageToken || "");
@@ -103,8 +134,8 @@ const ShortsVideo = ({ video, videoId }) => {
         <p>{video.channelTitle}</p>
         <div className="video-actions">
           <button className="action-button"><FaHeart /></button>
-          <button className="action-button"><FaComment /></button>
-          <button className="action-button"><FaShare /></button>
+          {/* <button className="action-button"><FaComment /></button>
+          <button className="action-button"><FaShare /></button> */}
         </div>
       </div>
     </motion.div>

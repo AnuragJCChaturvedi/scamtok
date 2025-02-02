@@ -6,6 +6,7 @@
     border: 1px solid var(--primary);
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
 }
 
 .report-scam h2 {
@@ -50,18 +51,59 @@
     box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
 }
 
-.submit-button {
-    background: var(--primary);
-    color: white;
+.report-scam-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ✅ Added Confirmation Message Styling */
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #c3e6cb;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ✅ Improved Button Styles */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.submit-button,
+.cancel-button {
+    flex: 1;
     padding: 12px;
     font-size: 1.1rem;
     font-weight: bold;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition:
-        background 0.3s,
-        transform 0.2s;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    text-align: center;
+}
+
+/* ✅ Submit Button Styling */
+.submit-button {
+    background: var(--primary);
+    color: white;
 }
 
 .submit-button:hover {
@@ -69,10 +111,33 @@
     transform: scale(1.05);
 }
 
-/* Responsive adjustments */
+.submit-button:active {
+    transform: scale(0.98);
+}
+
+/* ✅ Cancel Button Styling */
+.cancel-button {
+    background: #ff4d4d;
+    color: white;
+}
+
+.cancel-button:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+.cancel-button:active {
+    transform: scale(0.98);
+}
+
+/* ✅ Mobile Responsiveness */
 @media (max-width: 600px) {
     .report-scam {
         max-width: 90%;
         padding: 20px;
+    }
+
+    .button-group {
+        flex-direction: column;
     }
 }

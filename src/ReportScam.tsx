@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { scamCategories, storeUserKey } from './common'
+
+import { UserContext } from './contexts/UserContext'
 
 function ReportScam() {
   const navigate = useNavigate();
@@ -8,6 +12,9 @@ function ReportScam() {
     date_of_scam: "",
     description: "",
   });
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const { setCount } = useContext(UserContext)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,26 +27,61 @@ function ReportScam() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newScamReport = {
-      scam_type: formData.scam_type,
-      date_of_scam: formData.date_of_scam,
-      description: formData.description,
-    };
+    // Confirmation before submission
+    const confirmSubmit = window.confirm(
+      "Are you sure you want to submit this scam report?"
+    );
 
-    console.log("New Scam Report:", newScamReport);
+    if (!confirmSubmit) return;
 
-    setFormData({
-      scam_type: "",
-      date_of_scam: "",
-      description: "",
-    });
+    console.log("New Scam Report:", formData);
 
-    navigate("/");
+    const userDataStr = localStorage.getItem(storeUserKey);
+    
+    if (userDataStr) {
+      const userDataObj = JSON.parse(userDataStr);
+    
+      if (!userDataObj.user_scams.includes(formData.scam_type)) {
+        userDataObj.user_scams.push(formData.scam_type);
+    
+        localStorage.setItem(storeUserKey, JSON.stringify(userDataObj));
+      }
+
+    } else {
+      const newUserData = {
+        user_scams: [formData.scam_type],
+      };
+    
+      localStorage.setItem(storeUserKey, JSON.stringify(newUserData));
+
+    }
+
+    setCount(1)
+    
+
+    setShowSuccess(true);
+
+    setTimeout(() => {
+      setShowSuccess(false);
+      setFormData({
+        scam_type: "",
+        date_of_scam: "",
+        description: "",
+      });
+      navigate("/");
+    }, 3000);
   };
 
   return (
     <div className="report-scam">
       <h2>Report a Scam</h2>
+
+      {showSuccess && (
+        <div className="success-message">
+          ✅ Scam report submitted successfully!
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="report-scam-form">
         <div className="form-group">
           <label>Scam Type: </label>
@@ -49,15 +91,11 @@ function ReportScam() {
             onChange={handleChange}
             required
           >
-            <option value="">Select</option>
-            <option value="Romance Scams">Romance Scams</option>
-            <option value="Tech Support Scams">Tech Support Scams</option>
-            <option value="Lottery Scams">Lottery Scams</option>
-            <option value="Phishing">Phishing</option>
-            <option value="Email Extension">Email Extension</option>
-            <option value="Fake Check/Overpayment Scams">
-              Fake Check/Overpayment Scams
-            </option>
+            {scamCategories.map((val) => {
+              return (
+                <option value={val}>{val}</option>
+              )
+            })}
           </select>
         </div>
 

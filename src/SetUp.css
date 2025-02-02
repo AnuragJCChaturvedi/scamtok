@@ -47,25 +47,6 @@
     box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
 }
 
-.set-up-submit {
-    background: var(--primary);
-    color: white;
-    padding: 12px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition:
-        background 0.3s,
-        transform 0.2s;
-}
-
-.set-up-submit:hover {
-    background: var(--dark);
-    transform: scale(1.05);
-}
-
 /* Enhancing checkbox inputs */
 .scam-experience div {
     display: flex;
@@ -80,6 +61,52 @@
     height: 18px;
     accent-color: var(--primary);
 }
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.set-up-submit,
+.set-up-cancel {
+    flex: 1;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    text-align: center;
+}
+
+.set-up-submit {
+    background: var(--primary);
+    color: white;
+}
+
+.set-up-submit:hover {
+    background: var(--dark);
+    transform: scale(1.05);
+}
+
+.set-up-cancel {
+    background: #ff4d4d;
+    color: white;
+    margin-left: 10px;
+}
+
+.set-up-cancel:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+.set-up-cancel:active,
+.set-up-submit:active {
+    transform: scale(0.98);
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 600px) {

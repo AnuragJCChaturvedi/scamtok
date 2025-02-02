@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Scams from "./Shorts";
 import { Dropdown } from "react-bootstrap";
 import ScamItem from "./ScamItem";
+import { FaListAlt, FaRedo, FaFlag } from "react-icons/fa";
 
 function Home({ user }) {
   const navigate = useNavigate();
@@ -31,8 +32,8 @@ function Home({ user }) {
     <div className="home">
       <div className="dropdown-container">
         <Dropdown onSelect={handleSelect} autoClose={false}>
-          <Dropdown.Toggle variant="primary" id="dropdown-basic">
-            Recent Scams
+        <Dropdown.Toggle variant="primary" id="dropdown-basic" className="icon-dropdown">
+            <FaListAlt size={22} /> {/* ✅ New Icon Instead of Default Button */}
           </Dropdown.Toggle>
           <Dropdown.Menu onClick={(e) => e.stopPropagation()}>
             {scams.map((scam, index) => (
