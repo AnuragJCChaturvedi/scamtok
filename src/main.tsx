@@ -9,6 +9,8 @@ import "./SetUp.css";
 import "./Home.css";
 import "./ReportScam.css";
 
+import { UserDataProvider } from "./contexts/UserContext.tsx"
+
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
@@ -17,8 +19,10 @@ if (!PUBLISHABLE_KEY) {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
+    <UserDataProvider>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
       <App />
     </ClerkProvider>
+    </UserDataProvider>
   </React.StrictMode>,
 );
