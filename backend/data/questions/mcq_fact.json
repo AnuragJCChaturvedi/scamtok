@@ -1,0 +1,6 @@
+{
+    "question": "What is the capital of France?",
+    "options": ["Paris", "London", "Berlin", "Madrid"],
+    "difficulty":["fact"],
+    "knowledge_level": ["beginner"]
+}
