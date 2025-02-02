@@ -8,9 +8,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 
 import Home from "./Home";
-import Scams from "./Scams";
+import Shorts from "./Shorts";
 import SignedOutHome from "./SignedOutHome";
 import SetUp from "./SetUp";
+import ReportScam from "./ReportScam";
 
 export default function App() {
   const { user } = useUser();
@@ -28,8 +29,9 @@ export default function App() {
           <UserButton />
           <Routes>
             <Route path="/" element={<Home user={user} />} />
-            <Route path="/scams" element={<Scams />} />
+            <Route path="/scams" element={<Shorts user={user} />} />
             <Route path="/setup" element={<SetUp user={user} />} />
+            <Route path="/report-scam" element={<ReportScam />} />
           </Routes>
         </SignedIn>
       </div>

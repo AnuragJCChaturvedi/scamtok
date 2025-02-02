@@ -14,9 +14,22 @@
     "@clerk/clerk-react": "^5.22.10",
     "@clerk/nextjs": "^6.10.6",
     "@clerk/react-router": "^1.0.5",
+    "@types/youtube": "^0.1.0",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.7.9",
+    "framer-motion": "^12.0.6",
+    "postcss": "^8.5.1",
+    "bootstrap": "^5.3.3",
     "react": "^18.3.1",
+    "react-bootstrap": "^2.10.9",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.1.5"
+    "react-icons": "^5.4.0",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-router-dom": "^7.1.5",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.2",
+    "tailwindcss": "^4.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -5,11 +5,63 @@
     justify-content: center;
 }
 
+.dropdown-container {
+    cursor: pointer;
+    position: absolute;
+    top: 22.5px;
+    right: 10px;
+    background-color: var(--primary);
+    border: 1px solid var(--secondary);
+    color: var(--text);
+    border-radius: 4px;
+    margin-top: -9px;
+    margin-right: 20px;
+}
+
+.dropdown-container .dropdown-toggle {
+    background-color: var(--primary) !important;
+    border-color: var(--secondary) !important;
+    color: var(--text) !important;
+}
+
+.dropdown-container .dropdown-toggle:hover {
+    background-color: var(--secondary) !important;
+    border-color: var(--accent) !important;
+}
+
+.dropdown-container .dropdown-menu {
+    background-color: var(--primary);
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-container .dropdown-item {
+    color: var(--text);
+    padding: 8px 16px;
+}
+
+.dropdown-container .dropdown-item:hover {
+    background-color: var(--secondary);
+    color: white;
+}
+
 .reconfig-account-button {
     cursor: pointer;
-    margin-bottom: 10px;
-    margin-top: -51px;
-    margin-left: 1080px;
+    position: absolute;
+    top: 20px;
+    right: 300px;
+    background-color: var(--primary);
+    border: 1px solid var(--secondary);
+    color: var(--text);
+    border-radius: 4px;
+    margin-top: -9px;
+    margin-right: 20px;
+}
+
+.reconfig-account-button:hover {
+    background-color: var(--secondary);
+    border-color: var(--accent);
 }
 
 .scams {
@@ -21,4 +73,17 @@
     border-radius: 8px;
     color: white;
     width: 80%;
+}
+
+.report-scam-button {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 160px;
+    background-color: var(--primary);
+    border: 1px solid var(--secondary);
+    color: var(--text);
+    border-radius: 4px;
+    margin-top: -9px;
+    margin-right: 20px;
 }
