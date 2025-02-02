@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Scams from "./Shorts";
 import { Dropdown } from "react-bootstrap";
 import ScamItem from "./ScamItem";
-import Scams from "./Scams";
 
 function Home({ user }) {
   const navigate = useNavigate();
